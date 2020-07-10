@@ -11,5 +11,5 @@ func _ready():
 
 func _on_Timer_timeout():
 	var block = test.instance()
-	block.position = position + Vector2(0, rand_range(-200, 0))
+	block.position = position + Vector2(10, rand_range(-500, -100))
 	owner.add_child(block)
