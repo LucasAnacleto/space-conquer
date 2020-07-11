@@ -23,6 +23,7 @@ var u
 var k
 
 var b
+var h
 
 func _ready():
 	randomize()
@@ -38,7 +39,7 @@ func _process(delta):
 				tileMap.set_cellv(Vector2(xUp, p), tileMap.tile_set.get_tiles_ids()[0])
 			p = p - 1
 	elif y_initup > yUp:
-		var h = p
+		h = p
 		for h in y_initup:
 			if h > o && h > yUp:
 				tileMap.set_cellv(Vector2(xUp, h), tileMap.tile_set.get_tiles_ids()[0])	
