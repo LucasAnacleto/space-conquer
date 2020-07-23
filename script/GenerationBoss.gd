@@ -7,12 +7,26 @@ onready var boss_four = preload("res://scenes/boss/boss_four.tscn")
 onready var boss_five = preload("res://scenes/boss/boss_five.tscn")
 onready var boss_six = preload("res://scenes/boss/boss_six.tscn")
 
+
+onready var Player = $RigidBody2D
+
 var t
 var boss
-var teste
+var positionPlayer
 
 func _ready():
-	pass
+	set_process(true)
+	
+func _process(_delta):
+	if boss != null:
+		if Input.is_action_pressed("Controlle"):
+			positionboss()
+		else:
+			positionboss()
+			
+func positionboss():
+	positionPlayer = Player.global_position.y
+	boss.position.y =  positionPlayer
 
 
 func _on_Timer_timeout():
