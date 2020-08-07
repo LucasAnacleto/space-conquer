@@ -1,11 +1,11 @@
 extends Node2D
 
 
-onready var tileMap  = $TileMapDown
+onready var tileMap  = $Area2D/TileMapUp
 export var vel = 400
 var x_initup = 0
 
-onready var tileMap2  = $TileMapUp
+onready var tileMap2  = $Area2D/TileMapUp 	
 var x_initdown = 0
 var y_initup = 50
 var y_initdown = 13
@@ -25,9 +25,12 @@ var k
 var b
 var h
 
+var cena
+
 func _ready():
 	randomize()
 	set_process(true)
+	cena = get_tree().get_current_scene()
 
 func _process(delta):
 	
@@ -81,3 +84,13 @@ func _process(delta):
 func _on_Timer_timeout():
 	y_initup = rand_range(50, 30)
 	y_initdown = rand_range(6, 20)
+
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Player":
+		cena.kill()
+
+
+func _on_Area2D2_body_entered(body):
+	if body.name == "Player":
+		cena.kill()

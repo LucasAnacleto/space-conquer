@@ -23,14 +23,12 @@ height = 79.7537
 script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2.232, 2.009 )
 texture = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 145.863, 12.0587 )
 scale = Vector2( 3.762, 2.036 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship1/Ship1.png" type="Texture" id=1]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_4.png" type="Texture" id=2]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_10.png" type="Texture" id=3]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_11.png" type="Texture" id=4]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship1/Exhaust/Normal_flight/Exhaust2/exhaust1.png" type="Texture" id=5]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship1/Exhaust/Normal_flight/Exhaust2/exhaust2.png" type="Texture" id=6]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship1/Exhaust/Normal_flight/Exhaust2/exhaust3.png" type="Texture" id=7]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_6.png" type="Texture" id=8]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship1/Exhaust/Normal_flight/Exhaust2/exhaust4.png" type="Texture" id=9]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_3.png" type="Texture" id=11]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_5.png" type="Texture" id=13]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_7.png" type="Texture" id=14]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_8.png" type="Texture" id=15]
+[ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Explosions/Explosion1/Explosion1_9.png" type="Texture" id=16]
+[ext_resource path="res://script/Player/players.gd" type="Script" id=17]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 31.1491, 17.4696 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Explosion",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Nave",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Turbo",
+"speed": 5.0
+} ]
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 5.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+z_index = 2
+frames = SubResource( 1 )
+animation = "Nave"
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( -44.3214, 0 )
+frames = SubResource( 2 )
+animation = "Turbo"
+frame = 2
+playing = true
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

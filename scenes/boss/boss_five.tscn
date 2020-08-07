@@ -24,7 +24,6 @@ script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 3.14159
-scale = Vector2( 2.232, 2.009 )
 texture = ExtResource( 1 )
 flip_v = true
 
@@ -32,7 +31,6 @@ flip_v = true
 position = Vector2( 172.62, 16.3289 )
 scale = Vector2( 3.762, 2.036 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

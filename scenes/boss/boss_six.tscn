@@ -24,7 +24,6 @@ script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -3.14159
-scale = Vector2( 2.232, 2.009 )
 texture = ExtResource( 5 )
 flip_v = true
 
