@@ -5,6 +5,7 @@ var is_dead = true
 onready var anin = $AnimatedSprite
 onready var time = $Timer
 
+
 func _process(_delta):
 	set_process_input(true)
 	if anin.animation == "Explosion":

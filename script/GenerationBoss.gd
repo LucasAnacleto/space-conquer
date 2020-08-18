@@ -8,7 +8,7 @@ onready var boss_five = preload("res://scenes/boss/boss_five.tscn")
 onready var boss_six = preload("res://scenes/boss/boss_six.tscn")
 
 
-#onready var Player = $Player
+onready var time = $Timer
 
 var t
 var boss
@@ -22,13 +22,13 @@ func _physics_process(_delta):
 	
 	pos = getposiotion()	
 	if boss != null:
-		if Input.is_action_pressed("controlle"):			
+		if Input.is_action_pressed("Controlle"):			
 			positionboss(pos)
 		else:
 			positionboss(pos)
-			
+						
 func getposiotion() -> float:
-	pos = get_parent().get_node("naveplayer")
+	pos = get_parent().get_node("Player")
 	if pos == null:
 		pos = Vector2(0,0)
 		return pos
@@ -48,35 +48,41 @@ func _on_Timer_timeout():
 		boss.position = position
 		owner.add_child(boss)
 		t = String(boss.get_path())
+		time.wait_time = time.wait_time + 1
 	elif t == "/root/Space/boss_one":	
 		owner.remove_child(boss)
 		boss = boss_two.instance()
 		boss.position = position
 		owner.add_child(boss)		
 		t = String(boss.get_path())
+		time.wait_time = time.wait_time + 1
 	elif t == "/root/Space/boss_two":	
 		owner.remove_child(boss)
 		boss = boss_three.instance()
 		boss.position = position
 		owner.add_child(boss)		
 		t = String(boss.get_path())
+		time.wait_time = time.wait_time + 1
 	elif t == "/root/Space/boss_three":	
 		owner.remove_child(boss)
 		boss = boss_four.instance()
 		boss.position = position
 		owner.add_child(boss)		
 		t = String(boss.get_path())
+		time.wait_time = time.wait_time + 1
 	elif t == "/root/Space/boss_four":	
 		owner.remove_child(boss)
 		boss = boss_five.instance()
 		boss.position = position
 		owner.add_child(boss)		
 		t = String(boss.get_path())
+		time.wait_time = time.wait_time + 4
 	elif t == "/root/Space/boss_five":
 		owner.remove_child(boss)
 		boss = boss_six.instance()
 		boss.position = position
 		owner.add_child(boss)		
 		t = String(boss.get_path())	
+		time.wait_time = time.wait_time + 1
 
 

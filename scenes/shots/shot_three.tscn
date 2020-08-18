@@ -24,4 +24,5 @@ polygon = PoolVector2Array( 16.9578, -0.84622, 17.1326, -1.72034, 19.0556, -1.72
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 0.699066, 8.24466, 0.873886, 5.44747, 11.8878, 5.44747, 11.8878, 4.92299, 15.9088, 5.09782, 16.0836, 5.97194, 19.4053, 5.97194, 19.2305, 8.59431, 16.2585, 8.59431, 16.2585, 9.64326, 11.3634, 9.64326, 11.713, 10.867, 7.69205, 10.6922, 6.81792, 9.64326, 4.02073, 9.64326, 3.49625, 8.41949 )
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

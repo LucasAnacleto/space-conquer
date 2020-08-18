@@ -20,6 +20,10 @@ run/main_scene="res://scenes/space/Space.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
+[autoload]
+
+NewScript="*res://new_script.gd"
+
 [display]
 
 window/size/width=1700
@@ -28,7 +32,7 @@ window/size/test_width=850
 window/size/test_height=500
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [input]
 

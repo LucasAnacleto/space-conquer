@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship2/Exhaust/Normal_flight/Exhaust1/exhaust1.png" type="Texture" id=1]
 [ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship2/Ship2.png" type="Texture" id=2]
@@ -6,8 +6,33 @@
 [ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship2/Exhaust/Normal_flight/Exhaust1/exhaust3.png" type="Texture" id=4]
 [ext_resource path="res://assets/naves/PNG_Parts&Spriter_Animation/Ship2/Exhaust/Normal_flight/Exhaust1/exhaust4.png" type="Texture" id=5]
 [ext_resource path="res://script/boss/boss_two.gd" type="Script" id=6]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_008.png" type="Texture" id=7]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_000.png" type="Texture" id=8]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_004.png" type="Texture" id=9]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_005.png" type="Texture" id=10]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_013.png" type="Texture" id=11]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_009.png" type="Texture" id=12]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_010.png" type="Texture" id=13]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_014.png" type="Texture" id=14]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_015.png" type="Texture" id=15]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_016.png" type="Texture" id=16]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_019.png" type="Texture" id=17]
+[ext_resource path="res://assets/naves/PNG_Animations/Explosions/Ship2_Explosion/Ship2_Explosion_021.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "explosion",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -15,30 +40,32 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 25.06
-height = 84.9349
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 12.801
+height = 48.1947
 
 [node name="boss_two" type="KinematicBody2D"]
 script = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1.32684 )
+frames = SubResource( 1 )
+playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 128.848, 0 )
-scale = Vector2( 3.762, 2.036 )
-frames = SubResource( 1 )
-frame = 2
+position = Vector2( 57.8618, 0 )
+scale = Vector2( 1.4561, 1 )
+frames = SubResource( 2 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -12.635, -0.902496 )
+position = Vector2( -2.68366, -0.239074 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -97.4703, -0.902496 )
+position = Vector2( -46.3868, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
