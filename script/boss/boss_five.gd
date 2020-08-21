@@ -1,14 +1,36 @@
 extends KinematicBody2D
 
+enum Directions {LEFT, RIGHT, NONE}
+
+export var velocity = 15
+export var gravity = 0
+
 const SHOT_SCENE = preload("res://scenes/shots/shot_five.tscn")
 onready var time = $Timer
+
+const UP = Vector2(0, -1)
+var direction = Directions.NONE
+var motion = Vector2()
 
 func _ready():
 	set_process(true)
 	
-func _process(_delta):
+func _physics_process(_delta):
+		motion.y += gravity
+		
+		match direction:
+			Directions.RIGHT:
+				motion.x = velocity
+			Directions.LEFT:
+				motion.x = -velocity
+			Directions.NONE:
+				motion.x = 0
+				
+		move_and_slide(motion, UP)
+	
+	
 		if !time.autostart:
-			create_shot()
+			#create_shot()
 			restart_timer()
 		
 

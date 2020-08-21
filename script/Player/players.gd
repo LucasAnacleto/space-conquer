@@ -2,23 +2,22 @@ extends RigidBody2D
 
 const SHOT_SCENE = preload("res://scenes/shots/shot_player/shot_player.tscn")
 var is_dead = true
-onready var anin = $AnimatedSprite
+onready var anim = $AnimatedSprite
 onready var time = $Timer
 
 
 func _process(_delta):
 	set_process_input(true)
-	if anin.animation == "Explosion":
-		mode = RigidBody2D.MODE_STATIC
 
 	
 
 func _input(event):		
 	if is_dead:
 		if event.is_action_pressed("Controlle"):
+			anim.play('jump')
 			on_touch()
-	elif anin.animation == "Explosion":
-		mode = RigidBody2D.MODE_STATIC
+		else:
+			anim.play('idle')
 		
 	if event.is_action_pressed("shot"):
 		if !time.autostart:
@@ -27,7 +26,7 @@ func _input(event):
 		
 func on_touch():
 	mode = RigidBody2D.MODE_RIGID
-	apply_impulse(Vector2(0, 0), Vector2(0, -300)) 
+	apply_impulse(Vector2(0, 0), Vector2(0, -100)) 
 	
 func create_shot():
 	var shot = SHOT_SCENE.instance()

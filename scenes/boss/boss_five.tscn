@@ -58,7 +58,7 @@ flip_h = true
 position = Vector2( 81.0614, 6.99811 )
 scale = Vector2( 2.13, 1 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,17 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://tileset/down.tres" type="TileSet" id=1]
 [ext_resource path="res://tileset/up.tres" type="TileSet" id=2]
 [ext_resource path="res://script/Trail.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-
 [node name="Node2DTrial" type="Node2D"]
-script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
 
 [node name="TileMapUp" type="TileMap" parent="Area2D"]
 z_index = 1
@@ -19,25 +18,15 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_use_parent = true
 format = 1
+script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
-
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource( 2 )
-
-[node name="TileMapDown" type="TileMap" parent="Area2D2"]
-z_index = 2
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-collision_use_parent = true
-format = 1
-
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Area2D"]
 wait_time = 0.325
 autostart = true
+
+[node name="TimerReload" type="Timer" parent="Area2D"]
+wait_time = 49.664
+autostart = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Area2D/Timer" to="Area2D/TileMapUp" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Area2D/TimerReload" to="Area2D/TileMapUp" method="_on_TimerReload_timeout"]

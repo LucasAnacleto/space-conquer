@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://script/shot_player/shot_player.gd" type="Script" id=1]
-[ext_resource path="res://assets/naves/PNG_Animations/Shots/Shot1/shot1_4.png" type="Texture" id=2]
+[ext_resource path="res://assets/austronauta/shot.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,7 +18,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-amount = 2
+scale = Vector2( 0.1, 0.1 )
 lifetime = 0.2
 process_material = SubResource( 2 )
 texture = ExtResource( 2 )
