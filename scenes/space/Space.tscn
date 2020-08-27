@@ -30,12 +30,22 @@ one_way_collision = true
 
 [node name="Timer" type="Timer" parent="Node/map"]
 wait_time = 0.218
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 37.9052, 79.876 )
+autostart = true
 
 [node name="TimeReplay" type="Timer" parent="."]
 wait_time = 0.447
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40.4361, 77.3561 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -37.9052, -79.876 )
+anchor_mode = 0
+current = true
+smoothing_enabled = true
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+anchor_mode = 0
 [connection signal="body_entered" from="Node/map" to="Node/map/TileMap" method="_on_Area2D_body_entered"]
 [connection signal="platform_generated" from="Node/map/TileMap" to="Node" method="_on_TileMap_platform_generated"]
 [connection signal="timeout" from="Node/map/Timer" to="Node/map/TileMap" method="_on_Timer_timeout"]

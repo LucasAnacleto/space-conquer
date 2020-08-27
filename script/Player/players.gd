@@ -4,6 +4,7 @@ const SHOT_SCENE = preload("res://scenes/shots/shot_player/shot_player.tscn")
 var is_dead = true
 onready var anim = $AnimatedSprite
 onready var time = $Timer
+var vel = 10
 
 
 func _process(_delta):
@@ -24,8 +25,8 @@ func _input(event):
 			restart_timer()
 		
 func on_touch():
-	mode = RigidBody2D.MODE_RIGID
-	apply_impulse(Vector2(0, 0), Vector2(0, -100)) 
+	apply_impulse(Vector2(0, 0), Vector2(0, -70)) 	
+	apply_impulse(Vector2(0, 0), Vector2(10, 0)) 
 	
 func create_shot():
 	var shot = SHOT_SCENE.instance()

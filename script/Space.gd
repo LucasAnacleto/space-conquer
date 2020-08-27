@@ -2,11 +2,18 @@ extends Node2D
 
 onready var p = $Player/AnimatedSprite
 onready var pa = $Player
+onready var ca = $Camera2D
 
 
 
+
+var vel = 60
 
 onready var timereplay = get_node("TimeReplay")
+
+func _process(_delta):
+	pass
+
 
 	
 func kill():
