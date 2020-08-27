@@ -25,6 +25,7 @@ func _input(event):
 			restart_timer()
 		
 func on_touch():
+	mode = RigidBody2D.MODE_RIGID
 	apply_impulse(Vector2(0, 0), Vector2(0, -70)) 	
 	apply_impulse(Vector2(0, 0), Vector2(10, 0)) 
 	
