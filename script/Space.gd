@@ -2,7 +2,7 @@ extends Node2D
 
 onready var p = $Player/AnimatedSprite
 onready var pa = $Player
-onready var ca = $Camera2D
+onready var tile = $Node/map/TileMap
 
 
 
@@ -27,4 +27,5 @@ func kill_Boss():
 
 
 func _on_TimeReplay_timeout():
+	tile.clear()
 	get_tree().reload_current_scene()

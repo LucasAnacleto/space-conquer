@@ -5,7 +5,7 @@ signal platform_generated
 export var vel = 50
 
 var xUp = 0
-var yUp = 2
+var yUp = 1
 
 var xDown = 0
 var yDown = 6
@@ -20,17 +20,12 @@ func _ready():
 func _process(delta):
 		
 
-	set_cellv(Vector2(xUp, yUp), tile_set.get_tiles_ids()[rand_range(1, 9)])
-	
-	
-#
-	if xUp == 10:
-		emit_signal("platform_generated", map_to_world(Vector2(xUp, yUp)))
-
-	
+	set_cellv(Vector2(xUp, yUp), tile_set.get_tiles_ids()[rand_range(1, 9)])	
 	set_cellv(Vector2(xDown, yDown), tile_set.get_tiles_ids()[rand_range(1, 9)])
 	
 	
+	if xUp == 10:
+		emit_signal("platform_generated", map_to_world(Vector2(xUp, yUp)))	
 	
 	
 	if get_cell(xUp, yUp) != INVALID_CELL:
@@ -44,7 +39,7 @@ func _process(delta):
 	if get_cell(xDown, yDown) != INVALID_CELL:
 		var count = yDown
 		count = count + 1
-		var t = 11
+		var t = 20
 		for i in yDown:
 			if count <= t:
 				set_cellv(Vector2(xDown, count), tile_set.get_tiles_ids()[rand_range(1, 9)])
@@ -53,7 +48,7 @@ func _process(delta):
 	xDown = xDown + 1
 		
 func _on_Timer_timeout():
-	yUp = rand_range(0, 3)
+	yUp = rand_range(0, 2)
 	yDown = rand_range(6, 8)
 
 
