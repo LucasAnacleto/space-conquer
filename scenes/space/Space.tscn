@@ -11,32 +11,32 @@
 [node name="Space" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="map" type="Area2D" parent="."]
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map"]
-shape = SubResource( 1 )
+[node name="map" type="Area2D" parent="Node"]
 
-[node name="TileMap" type="TileMap" parent="map"]
-modulate = Color( 0.960784, 0.85098, 0.482353, 1 )
+[node name="TileMap" type="TileMap" parent="Node/map"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_use_parent = true
 format = 1
-tile_data = PoolIntArray( 131072, 1, 0, 393216, 1, 0 )
 script = ExtResource( 5 )
 
-[node name="Timer" type="Timer" parent="map"]
-wait_time = 0.325
-autostart = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/map"]
+z_index = 4
+shape = SubResource( 1 )
+one_way_collision = true
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource( 3 )
+[node name="Timer" type="Timer" parent="Node/map"]
+wait_time = 0.218
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 37.9052, 79.876 )
 
 [node name="TimeReplay" type="Timer" parent="."]
 wait_time = 0.447
-[connection signal="body_entered" from="map" to="map/TileMap" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="map/Timer" to="map/TileMap" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Node/map" to="Node/map/TileMap" method="_on_Area2D_body_entered"]
+[connection signal="platform_generated" from="Node/map/TileMap" to="Node" method="_on_TileMap_platform_generated"]
+[connection signal="timeout" from="Node/map/Timer" to="Node/map/TileMap" method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimeReplay" to="." method="_on_TimeReplay_timeout"]

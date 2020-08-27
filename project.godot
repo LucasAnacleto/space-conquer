@@ -20,10 +20,6 @@ run/main_scene="res://scenes/space/Space.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
-[autoload]
-
-NewScript="*res://new_script.gd"
-
 [display]
 
 window/size/width=256

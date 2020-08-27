@@ -10,7 +10,6 @@ func _process(_delta):
 	set_process_input(true)
 
 	
-
 func _input(event):		
 	if is_dead:
 		if event.is_action_pressed("Controlle"):
