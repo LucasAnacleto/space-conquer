@@ -45,8 +45,5 @@ z_index = 2
 frames = SubResource( 3 )
 animation = "idle"
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="Gun" type="Position2D" parent="."]
 position = Vector2( 5.52079, 3.86456 )
-
-[node name="Timer" type="Timer" parent="."]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

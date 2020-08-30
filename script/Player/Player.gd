@@ -5,13 +5,15 @@ signal player_died
 
 
 const SHOT_SCENE = preload("res://scenes/shots/shot_player/shot_player.tscn")
+const SHOOT_COOLDOWN = 0.5
 
 var is_dead = false
+var can_shoot = true
 var impulse_offset = Vector2(0, 0)
 var impulse = Vector2(8, -80)
 
-onready var anim = $AnimatedSprite
-onready var time = $Timer
+onready var sprite = $AnimatedSprite
+onready var gun = $Gun
 
 
 func _physics_process(delta):
@@ -24,37 +26,31 @@ func _input(event):
 		if event.is_action_pressed("Controlle"):
 			jump()
 		else:
-			anim.play('idle')
+			sprite.play('idle')
 
 		if event.is_action_pressed("shot"):
-			if !time.autostart:
-				create_shot()
-				restart_timer()
+			if can_shoot:
+				shoot()
 
 
 func jump():
 	mode = RigidBody2D.MODE_RIGID
-	anim.play('jump')
+	sprite.play('jump')
 	apply_impulse(impulse_offset, impulse)
 
 
 func die():
 	is_dead = true
-	anim.play("dead")
+	sprite.play("dead")
 	emit_signal("player_died")
 
 
-func create_shot():
-	var shot = SHOT_SCENE.instance()
-	get_parent().add_child(shot)
-	shot.position = get_node("Position2D").global_position
+func shoot():
+	var bullet = SHOT_SCENE.instance()
+	bullet.position = gun.global_position
+	get_parent().add_child(bullet)
 
+	can_shoot = false
+	yield(get_tree().create_timer(SHOOT_COOLDOWN), "timeout")
+	can_shoot = true
 
-func restart_timer():
-	time.wait_time = .5
-	time.autostart = true
-	time.start()
-
-
-func _on_Timer_timeout():
-	time.autostart = false
