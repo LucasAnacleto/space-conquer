@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "PlatformMapGenerator",
+"language": "GDScript",
+"path": "res://modules/procedural_platform_generator/PlatformMapGenerator.gd"
+}, {
+"base": "Node",
+"class": "PlatformSectionGenerator",
+"language": "GDScript",
+"path": "res://modules/procedural_platform_generator/LinearPlatformGenerator.gd"
+} ]
 _global_script_class_icons={
-
+"PlatformMapGenerator": "",
+"PlatformSectionGenerator": ""
 }
 
 [application]
@@ -24,8 +35,8 @@ config/icon="res://icon.png"
 
 window/size/width=256
 window/size/height=144
-window/size/test_width=512
-window/size/test_height=288
+window/size/test_width=854
+window/size/test_height=480
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -51,5 +62,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

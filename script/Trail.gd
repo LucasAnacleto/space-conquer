@@ -18,16 +18,16 @@ func _ready():
 	cena = get_tree().get_current_scene()
 
 func _process(delta):
-		
 
-	set_cellv(Vector2(xUp, yUp), tile_set.get_tiles_ids()[rand_range(1, 9)])	
+
+	set_cellv(Vector2(xUp, yUp), tile_set.get_tiles_ids()[rand_range(1, 9)])
 	set_cellv(Vector2(xDown, yDown), tile_set.get_tiles_ids()[rand_range(1, 9)])
-	
-	
+
+
 	if xUp == 10:
-		emit_signal("platform_generated", map_to_world(Vector2(xUp, yUp)))	
-	
-	
+		emit_signal("platform_generated", map_to_world(Vector2(xUp, yUp)))
+
+
 	if get_cell(xUp, yUp) != INVALID_CELL:
 		var count = 0
 		for i in yUp:
@@ -35,7 +35,7 @@ func _process(delta):
 				set_cellv(Vector2(xUp, count), tile_set.get_tiles_ids()[rand_range(1, 9)])
 			i = i + 1
 			count = count + 1
-			
+
 	if get_cell(xDown, yDown) != INVALID_CELL:
 		var count = yDown
 		count = count + 1
@@ -46,7 +46,7 @@ func _process(delta):
 				count = count + 1
 	xUp = xUp + 1
 	xDown = xDown + 1
-		
+
 func _on_Timer_timeout():
 	yUp = rand_range(0, 2)
 	yDown = rand_range(6, 8)

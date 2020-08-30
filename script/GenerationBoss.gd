@@ -17,17 +17,17 @@ var pos
 
 func _ready():
 	set_process(true)
-	
+
 func _physics_process(_delta):
 	pass
-	
-#	pos = getposiotion()	
+
+#	pos = getposiotion()
 #	if boss != null:
-#		if Input.is_action_pressed("Controlle"):			
+#		if Input.is_action_pressed("Controlle"):
 #			positionboss(pos)
 #		else:
 #			positionboss(pos)
-						
+
 func getposiotion() -> float:
 	pos = get_parent().get_node("Player")
 	if pos == null:
@@ -35,8 +35,8 @@ func getposiotion() -> float:
 		return pos
 	else:
 		var posGlobal = pos.global_position
-		return posGlobal	
-			
+		return posGlobal
+
 func positionboss(argu):
 	boss.position.y =  argu.y
 
@@ -55,40 +55,40 @@ func _on_Timer_timeout():
 #		owner.add_child(boss)
 #		t = String(boss.get_path())
 #		time.wait_time = time.wait_time + 1
-#	elif t == "/root/Space/boss_one":	
+#	elif t == "/root/Space/boss_one":
 #		owner.remove_child(boss)
 #		boss = boss_two.instance()
 #		boss.position = position
-#		owner.add_child(boss)		
+#		owner.add_child(boss)
 #		t = String(boss.get_path())
 #		time.wait_time = time.wait_time + 1
-#	elif t == "/root/Space/boss_two":	
+#	elif t == "/root/Space/boss_two":
 #		owner.remove_child(boss)
 #		boss = boss_three.instance()
 #		boss.position = position
-#		owner.add_child(boss)		
+#		owner.add_child(boss)
 #		t = String(boss.get_path())
 #		time.wait_time = time.wait_time + 1
-#	elif t == "/root/Space/boss_three":	
+#	elif t == "/root/Space/boss_three":
 #		owner.remove_child(boss)
 #		boss = boss_four.instance()
 #		boss.position = position
-#		owner.add_child(boss)		
+#		owner.add_child(boss)
 #		t = String(boss.get_path())
 #		time.wait_time = time.wait_time + 1
-#	elif t == "/root/Space/boss_four":	
+#	elif t == "/root/Space/boss_four":
 #		owner.remove_child(boss)
 #		boss = boss_five.instance()
 #		boss.position = position
-#		owner.add_child(boss)		
+#		owner.add_child(boss)
 #		t = String(boss.get_path())
 #		time.wait_time = time.wait_time + 4
 #	elif t == "/root/Space/boss_five":
 #		owner.remove_child(boss)
 #		boss = boss_six.instance()
 #		boss.position = position
-#		owner.add_child(boss)		
-#		t = String(boss.get_path())	
+#		owner.add_child(boss)
+#		t = String(boss.get_path())
 #		time.wait_time = time.wait_time + 1
 
 
