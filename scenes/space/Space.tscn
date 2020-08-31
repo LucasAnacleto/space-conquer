@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://script/Enemies.gd" type="Script" id=2]
+[ext_resource path="res://scenes/NaveBoss/Ovni.tscn" type="PackedScene" id=3]
 [ext_resource path="res://script/Space.gd" type="Script" id=4]
 [ext_resource path="res://modules/procedural_platform_generator/PlatformMapGenerator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tileset/1bit-walls.tres" type="TileSet" id=7]
@@ -31,5 +33,10 @@ tile_set = ExtResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
 script = ExtResource( 9 )
+
+[node name="Enemies" type="Node2D" parent="PlatformGenerator/SpaceInTheMiddlePlatformGenerator"]
+script = ExtResource( 2 )
+enemy_scenes = [ ExtResource( 3 ) ]
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
+[connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]

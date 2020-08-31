@@ -1,6 +1,9 @@
 extends TileMap
 
 
+signal platform_generated
+
+
 var last_rendered_column: int
 
 onready var total_vertical_cells := int(get_viewport().size.y / cell_size.y)
@@ -32,6 +35,18 @@ func _on_SpaceInTheMiddlePlatformGenerator_draw_section(section: Dictionary):
 
 			for y in range(part.bottom, limit_bottom):
 				set_cellv(Vector2(x, y), get_random_tile())
+
+		var position_top = {
+			"from": map_to_world(Vector2(start_column, part.top)),
+			"to": map_to_world(Vector2(start_column + part.size, part.top))
+		}
+
+		var position_bottom = {
+			"from": map_to_world(Vector2(start_column, part.bottom)),
+			"to": map_to_world(Vector2(start_column + part.size, part.bottom))
+		}
+
+		emit_signal("platform_generated", section, part, position_top, position_bottom)
 
 		start_column += part.size
 

@@ -6,8 +6,8 @@ var cena
 func _ready():
 	cena = get_tree().get_current_scene()
 	set_process(true)
-	
-	
+
+
 func _process(delta):
 	var speed_x = 1
 	var speed_y = 0
