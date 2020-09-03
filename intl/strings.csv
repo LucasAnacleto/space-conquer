@@ -4,9 +4,9 @@ OPTIONS_TO_PAUSE,[options] para pausar,[options] to pause,[options] para pausar
 PLUS_TO_PAUSE,[+] para pausar,[+] to pause,[+] para pausar
 PAUSE,[pausar],[pause],[pausar]
 ESC_TO_PAUSE,[esc] para pausar,[esc] to pause,[esc] para pausar
-A_TO_SHOT,[A] para atirar,[A] to shot [directional up] for impulse,[A] para disparar [direccional hacia arriba] para impulsar
-X_TO_SHOT,[X] para atirar,[X] to shot [directional up] for impulse,[X] para disparar [direccional hacia arriba] para impulsar
-B_TO_SHOT,[B] para atirar,[B] to shot [directional up] for impulse,[B] para disparar [direccional hacia arriba] para impulsar
+A_TO_SHOT,[A] para atirar,[A] to shot,[A] para disparar
+X_TO_SHOT,[X] para atirar,[X] to shot,[X] para disparar
+B_TO_SHOT,[B] para atirar,[B] to shot,[B] para disparar
 TOUCH_SCREEN_TO_JUMP,toque na tela do lado esquerdo para pular e do lado direito para atirar,tap the screen on the left to jump and on the right to shoot,toque la pantalla a la izquierda para saltar y a la derecha para disparar
 SPACE_TO_SHOT,barra de espaco para atirar,space bar to shot,barra espaciadora para disparar
 CONTROL_TO_IMPULSE,[direcional] para impulso,[directional pad] for impulse,[pad direccional] para impulsar
