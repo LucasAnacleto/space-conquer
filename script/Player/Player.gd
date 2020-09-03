@@ -40,6 +40,8 @@ func jump():
 
 
 func die():
+	if State.first_run:
+		State.first_run = false
 	is_dead = true
 	sprite.play("dead")
 	emit_signal("player_died")

@@ -14,13 +14,14 @@ func _ready():
 	increment_total_chunks_generated()
 
 
-func _process(_delta):
+func _process(_delta):	
 	var player_position = player.position
 	var viewport_size = get_viewport().size
 
 	if player_position.x / viewport_size.x > total_chunks_generated - 2:
 		platform_generator.generate_map(map_chunk_width)
 		increment_total_chunks_generated()
+
 
 
 func increment_total_chunks_generated() -> void:

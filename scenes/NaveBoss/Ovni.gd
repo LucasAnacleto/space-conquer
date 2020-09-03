@@ -21,6 +21,8 @@ func _physics_process(_delta):
 func die():
 	is_dead = true
 	sprite.play("dead")
+	
+	
 
 
 func is_body_target(body) -> bool:
