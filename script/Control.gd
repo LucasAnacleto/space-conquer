@@ -17,10 +17,11 @@ func _ready():
 		new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
 		visible = new_pause_state
-		
-		
-		
+				
 	activate_controller_hint()
+	
+	
+	Input.connect("joy_connection_changed", self, "_on_Input_joy_connection_changed")
 
 	
 
@@ -66,3 +67,5 @@ func get_controller_type() -> String:
 
 	return ControllerType.KEYBOARD
 	
+func _on_Input_joy_connection_changed(_device, _connected) -> void:
+	activate_controller_hint()

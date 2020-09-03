@@ -45,7 +45,6 @@ enemy_scenes = [ ExtResource( 3 ) ]
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="UI"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -84,19 +83,20 @@ __meta__ = {
 [node name="Quit" type="Label" parent="UI/Control/Panel/Title"]
 margin_right = 183.0
 margin_bottom = 12.0
-text = "QUIT"
+text = "TITLE_CONTROLS"
 align = 1
 
 [node name="ControllerHints" type="MarginContainer" parent="UI/Control/Panel"]
 margin_left = 7.0
-margin_top = 22.9593
-margin_right = 186.0
-margin_bottom = 69.9593
+margin_top = 23.0
+margin_right = 195.0
+margin_bottom = 70.0
 custom_constants/margin_right = 0
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -172,6 +172,9 @@ text = "B_TO_SHOT"
 [node name="Keyboard" type="VBoxContainer" parent="UI/Control/Panel/ControllerHints"]
 margin_right = 188.0
 margin_bottom = 47.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Pause" type="Label" parent="UI/Control/Panel/ControllerHints/Keyboard"]
 margin_right = 188.0
