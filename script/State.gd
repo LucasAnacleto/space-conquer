@@ -5,5 +5,5 @@ var first_run := true
 
 
 func _ready():
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 

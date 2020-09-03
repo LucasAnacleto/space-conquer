@@ -56,3 +56,13 @@ func shoot():
 	yield(get_tree().create_timer(SHOOT_COOLDOWN), "timeout")
 	can_shoot = true
 
+
+
+func _on_TouchScreenButton_pressed():
+	if not is_dead && not get_tree().paused:
+		shoot()
+
+
+func _on_Iimpulse_pressed():
+	if not is_dead && not get_tree().paused:
+		jump()

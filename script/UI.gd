@@ -1,24 +1,33 @@
-extends Control
+extends CanvasLayer
+
 
 enum ControllerType {XBOX, DUALSHOCK, SWITCH, TOUCH, KEYBOARD}
 const JOYPAD_DEVICE_ID := 0
 onready var new_pause_state = not get_tree().paused
 
+onready var control = $Control
+
 onready var controller_hints = {
-	"xbox": $Panel/ControllerHints/Xbox,
-	"dualshock": $Panel/ControllerHints/DualShock,
-	"switch": $Panel/ControllerHints/Switch,
-	"keyboard": $Panel/ControllerHints/Keyboard
+	"xbox": $Control/Panel/ControllerHints/Xbox,
+	"dualshock": $Control/Panel/ControllerHints/DualShock,
+	"switch": $Control/Panel/ControllerHints/Switch,
+	"keyboard": $Control/Panel/ControllerHints/Keyboard,
+	"touch": $Control/Panel/ControllerHints/Touch
 }
 
+onready var touch_pause_button = $Pause
+onready var touch_pause_button_anin = $Pause/AnimatedSprite
+
+
 func _ready():
-	visible = false
+	control.visible = false
 	if State.first_run:
 		new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
-		visible = new_pause_state
+		control.visible = new_pause_state
 				
 	activate_controller_hint()
+	show_screen_buttons()
 	
 	
 	Input.connect("joy_connection_changed", self, "_on_Input_joy_connection_changed")
@@ -29,7 +38,7 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
-		visible = new_pause_state
+		control.visible = new_pause_state
 		
 func activate_controller_hint() -> void:
 	hide_controller_hint()
@@ -48,9 +57,16 @@ func show_controller_hint() -> void:
 			controller_hints.switch.show()
 		ControllerType.XBOX:
 			controller_hints.xbox.show()
+		ControllerType.TOUCH:
+			controller_hints.touch.show()
 		ControllerType.KEYBOARD:
 			controller_hints.keyboard.show()
 			
+func show_screen_buttons() -> void:
+	if get_controller_type() == ControllerType.TOUCH:
+		touch_pause_button.show()
+	else:
+		touch_pause_button.hide()
 			
 func get_controller_type() -> String:
 	var joypads = Input.get_connected_joypads()
@@ -64,8 +80,22 @@ func get_controller_type() -> String:
 
 		return ControllerType.XBOX
 
+	if OS.has_touchscreen_ui_hint():
+		return ControllerType.TOUCH
 
 	return ControllerType.KEYBOARD
 	
 func _on_Input_joy_connection_changed(_device, _connected) -> void:
 	activate_controller_hint()
+	show_screen_buttons()
+
+
+func _on_TouchScreenButton_pressed():
+	if touch_pause_button_anin.animation == "play":
+		touch_pause_button_anin.play('stop')
+	else:
+		touch_pause_button_anin.play('play')
+	
+	new_pause_state = not get_tree().paused
+	get_tree().paused = new_pause_state
+	control.visible = new_pause_state

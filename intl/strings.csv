@@ -8,7 +8,8 @@ ESC_TO_PAUSE,[esc] para pausar,[esc] to pause,[esc] para pausar
 A_TO_SHOT,[A] para atirar,[A] to shot,[A] para disparar
 X_TO_SHOT,[X] para atirar,[X] to shot,[X] para disparar
 B_TO_SHOT,[B] para atirar,[B] to shot,[B] para disparar
-TOUCH_SCREEN_TO_JUMP,toque na tela do lado esquerdo para pular e do lado direito para atirar,tap the screen on the left to jump and on the right to shoot,toque la pantalla a la izquierda para saltar y a la derecha para disparar
+TOUCH_SCREEN_TO_IMPULSE,Lado esquerdo para impulso,Left side for impulse,Lado izquierdo para impulso
+TOUCH_SCREEN_TO_SHOT,lado direito para atirar,right side to shoot,lado derecho para disparar
 SPACE_TO_SHOT,barra de espaco para atirar,space bar to shot,barra espaciadora para disparar
 CONTROL_TO_IMPULSE,[direcional] para impulso,[directional pad] for impulse,[pad direccional] para impulsar
 ARROW_KEYS_TO_SPEED_CONTROL,[seta para cima] impulso,[arrow up] for impulse,[flecha arriba] para impulsar

@@ -41,7 +41,6 @@ window/size/width=256
 window/size/height=144
 window/size/test_width=854
 window/size/test_height=480
-window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -72,7 +71,7 @@ pause={
 
 [input_devices]
 
-pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [locale]
 

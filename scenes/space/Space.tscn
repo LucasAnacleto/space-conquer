@@ -1,22 +1,45 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/Enemies.gd" type="Script" id=2]
 [ext_resource path="res://scenes/NaveBoss/Ovni.tscn" type="PackedScene" id=3]
 [ext_resource path="res://script/Space.gd" type="Script" id=4]
-[ext_resource path="res://script/Control.gd" type="Script" id=5]
+[ext_resource path="res://script/UI.gd" type="Script" id=5]
 [ext_resource path="res://modules/procedural_platform_generator/PlatformMapGenerator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tileset/1bit-walls.tres" type="TileSet" id=7]
 [ext_resource path="res://modules/procedural_platform_generator/SpaceInTheMiddlePlatformGenerator.tscn" type="PackedScene" id=8]
 [ext_resource path="res://script/Cave.gd" type="Script" id=9]
+[ext_resource path="res://assets/austronauta/shadedDark14.png" type="Texture" id=10]
+[ext_resource path="res://assets/austronauta/flatDark15.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "play",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
 
 [node name="Space" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 4 )
 
+[node name="Audio" type="Node" parent="."]
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
-position = Vector2( 40.4361, 77.3561 )
+position = Vector2( 127.861, 69.356 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -43,11 +66,11 @@ script = ExtResource( 2 )
 enemy_scenes = [ ExtResource( 3 ) ]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
 
 [node name="Control" type="Control" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,7 +119,6 @@ custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -172,9 +194,6 @@ text = "B_TO_SHOT"
 [node name="Keyboard" type="VBoxContainer" parent="UI/Control/Panel/ControllerHints"]
 margin_right = 188.0
 margin_bottom = 47.0
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Pause" type="Label" parent="UI/Control/Panel/ControllerHints/Keyboard"]
 margin_right = 188.0
@@ -192,6 +211,47 @@ margin_top = 32.0
 margin_right = 188.0
 margin_bottom = 44.0
 text = "SPACE_TO_SHOT"
+
+[node name="Touch" type="VBoxContainer" parent="UI/Control/Panel/ControllerHints"]
+margin_right = 188.0
+margin_bottom = 47.0
+
+[node name="Impulse" type="Label" parent="UI/Control/Panel/ControllerHints/Touch"]
+margin_right = 188.0
+margin_bottom = 12.0
+text = "TOUCH_SCREEN_TO_IMPULSE"
+
+[node name="Shot" type="Label" parent="UI/Control/Panel/ControllerHints/Touch"]
+margin_top = 16.0
+margin_right = 188.0
+margin_bottom = 28.0
+text = "TOUCH_SCREEN_TO_SHOT"
+
+[node name="Pause" type="TouchScreenButton" parent="UI"]
+position = Vector2( 127.861, 0 )
+z_index = 2
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UI/Pause"]
+position = Vector2( 8, 8.002 )
+scale = Vector2( 0.385761, 0.240904 )
+frames = SubResource( 2 )
+animation = "play"
+
+[node name="Shot" type="TouchScreenButton" parent="UI"]
+position = Vector2( 142.919, 17.5667 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 3 )
+visibility_mode = 1
+
+[node name="Iimpulse" type="TouchScreenButton" parent="UI"]
+position = Vector2( -27.2967, 17.5667 )
+scale = Vector2( 8.513, 10 )
+shape = SubResource( 4 )
+visibility_mode = 1
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
 [connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]
+[connection signal="pressed" from="UI/Pause" to="UI" method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="UI/Shot" to="Player" method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="UI/Iimpulse" to="Player" method="_on_Iimpulse_pressed"]
