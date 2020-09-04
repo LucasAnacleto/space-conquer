@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/Enemies.gd" type="Script" id=2]
@@ -11,10 +11,11 @@
 [ext_resource path="res://script/Cave.gd" type="Script" id=9]
 [ext_resource path="res://assets/austronauta/shadedDark14.png" type="Texture" id=10]
 [ext_resource path="res://assets/austronauta/flatDark15.png" type="Texture" id=11]
+[ext_resource path="res://assets/austronauta/SpaceBackGround.jpg" type="Texture" id=12]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -27,9 +28,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
-
 [sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="TileSet" id=6]
+0/name = "SpaceBackGround.jpg 0"
+0/texture = ExtResource( 12 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 304, 48, 544, 224 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Space" type="Node2D"]
 pause_mode = 2
@@ -230,25 +247,37 @@ text = "TOUCH_SCREEN_TO_SHOT"
 [node name="Pause" type="TouchScreenButton" parent="UI"]
 position = Vector2( 127.861, 0 )
 z_index = 2
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI/Pause"]
 position = Vector2( 8, 8.002 )
 scale = Vector2( 0.385761, 0.240904 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "play"
 
 [node name="Shot" type="TouchScreenButton" parent="UI"]
 position = Vector2( 142.919, 17.5667 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 visibility_mode = 1
 
 [node name="Iimpulse" type="TouchScreenButton" parent="UI"]
 position = Vector2( -27.2967, 17.5667 )
 scale = Vector2( 8.513, 10 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 visibility_mode = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 256, 0 )
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0 )
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
 [connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]
