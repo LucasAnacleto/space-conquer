@@ -18,7 +18,7 @@
 0/texture = ExtResource( 12 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 304, 48, 544, 224 )
+0/region = Rect2( 128, 176, 448, 208 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
@@ -65,14 +65,14 @@ motion_mirroring = Vector2( 256, 0 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0 )
+tile_data = PoolIntArray( -786432, 0, 0, 0, 0, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0941176, 0.0901961, 0.0901961, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
-position = Vector2( 127.861, 69.356 )
+position = Vector2( -0.27739, 73.2206 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -283,17 +283,21 @@ scale = Vector2( 8.513, 10 )
 shape = SubResource( 5 )
 visibility_mode = 1
 
-[node name="PauseM" type="Control" parent="UI"]
+[node name="ControlScore" type="Control" parent="UI"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/PauseM"]
+[node name="Score" type="Label" parent="UI/ControlScore"]
 margin_right = 40.0
 margin_bottom = 12.0
 text = "0m"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
 [connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]
