@@ -34,8 +34,8 @@ func _input(event):
 			if can_shoot:				
 				emit_signal("player_laserbean", cena)
 				sprite.play('jump')
-#		else:
-#			emit_signal("player_laserbean", cena)
+		else:
+			emit_signal("player_laserbean", cena)
 
 func jump():
 	sprite.play('jump')	

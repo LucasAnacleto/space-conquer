@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/austronauta/Astronaut1.png" type="Texture" id=1]
 [ext_resource path="res://assets/austronauta/DungeonItems.png" type="Texture" id=2]
 [ext_resource path="res://assets/light.png" type="Texture" id=3]
 [ext_resource path="res://assets/austronauta/light.png" type="Texture" id=4]
+[ext_resource path="res://scenes/shots/LaserBeam/LaserBeam.tscn" type="PackedScene" id=5]
 [ext_resource path="res://script/Player/Player.gd" type="Script" id=17]
 [ext_resource path="res://assets/austronauta/Astronaut.png" type="Texture" id=18]
 
@@ -21,14 +22,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "dead",
 "speed": 5.0
 } ]
 
@@ -47,7 +48,7 @@ frames = SubResource( 3 )
 animation = "idle"
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]
-position = Vector2( 204.317, -19.0192 )
+position = Vector2( 200.741, -17.8816 )
 rotation = -1.57079
 scale = Vector2( 0.236928, 0.273182 )
 texture = ExtResource( 3 )
@@ -58,5 +59,8 @@ position = Vector2( 0.440127, -0.64077 )
 scale = Vector2( 0.101404, 0.162533 )
 texture = ExtResource( 4 )
 
-[node name="Gun" type="Position2D" parent="."]
-position = Vector2( 5.52079, 3.86456 )
+[node name="LaserBeam2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 7.62096, 2.84401 )
+z_index = 2
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="player_laserbean" from="." to="LaserBeam2D" method="_on_Player_player_laserbean"]
