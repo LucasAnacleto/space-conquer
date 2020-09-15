@@ -2,9 +2,10 @@ extends RigidBody2D
 
 
 signal player_died
+signal player_laserbean
 
 
-const SHOT_SCENE = preload("res://scenes/shots/shot_player/shot_player.tscn")
+
 const SHOOT_COOLDOWN = 0.5
 
 var is_dead = false
@@ -14,11 +15,11 @@ var impulse = Vector2(8, -80)
 
 onready var sprite = $AnimatedSprite
 onready var gun = $Gun
-
+onready var light = $AnimatedSprite/Light2D
+onready var laser = $LaserBeam2D
 
 func _physics_process(delta):
-	if get_colliding_bodies().size() > 0:
-		die()
+	pass
 
 
 func _input(event):
@@ -26,43 +27,44 @@ func _input(event):
 		if event.is_action_pressed("Controlle"):
 			jump()
 		else:
-			sprite.play('idle')
-
-		if event.is_action_pressed("shot"):
-			if can_shoot:
-				shoot()
-
+			sprite.play('idle')		
+			
+		var cena = event
+		if event.is_action_pressed("shot") or event is InputEventScreenTouch:			
+			if can_shoot:				
+				emit_signal("player_laserbean", cena)
+				sprite.play('jump')
+#		else:
+#			emit_signal("player_laserbean", cena)
 
 func jump():
-	mode = RigidBody2D.MODE_RIGID
-	sprite.play('jump')
+	sprite.play('jump')	
 	apply_impulse(impulse_offset, impulse)
 
 
 func die():
 	if State.first_run:
-		State.first_run = false
+		State.first_run = false	
 	is_dead = true
+	mode = RigidBody2D.MODE_STATIC
+	light.visible = false
 	sprite.play("dead")
 	emit_signal("player_died")
+	laser.visible = false
 
-
-func shoot():
-	var bullet = SHOT_SCENE.instance()
-	bullet.position = gun.global_position
-	get_parent().add_child(bullet)
-
-	can_shoot = false
-	yield(get_tree().create_timer(SHOOT_COOLDOWN), "timeout")
-	can_shoot = true
-
-
-
-func _on_TouchScreenButton_pressed():
-	if not is_dead && not get_tree().paused:
-		shoot()
+func _on_Shot_pressed():
+	if can_shoot:
+		emit_signal("player_laserbean")
+		sprite.play('jump')
+	else:
+		emit_signal("player_laserbean")
 
 
 func _on_Iimpulse_pressed():
 	if not is_dead && not get_tree().paused:
 		jump()
+
+
+func _on_Player_body_entered(body):
+	if body.name != "Bullet":
+		die()

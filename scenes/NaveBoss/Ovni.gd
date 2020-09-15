@@ -17,10 +17,11 @@ func _physics_process(_delta):
 		if position.distance_to(target.position) > 5:
 			velocity = move_and_slide(velocity)
 
-
 func die():
 	is_dead = true
 	sprite.play("dead")
+	yield(get_tree().create_timer(0.5), "timeout")
+	queue_free()
 	
 	
 
@@ -37,10 +38,3 @@ func _on_FieldView_body_entered(body):
 func _on_FieldView_body_exited(body):
 	if is_body_target(body):
 		target = null
-
-
-func _on_DeathArea_body_entered(body):
-	if body.name == "Bullet":
-		die()
-		yield(get_tree().create_timer(0.5), "timeout")
-		queue_free()
