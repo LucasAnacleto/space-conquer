@@ -31,11 +31,14 @@ func increment_total_chunks_generated() -> void:
 
 
 
-func _on_Player_player_died():
+func _on_Player_player_died():	
+	$UI/Audio/Music.stop()
 	yield(get_tree().create_timer(3.0), "timeout")
-	get_tree().reload_current_scene()
+	if not player.is_dead || not get_tree().paused:
+		get_tree().reload_current_scene()
 
 
 func process_game_flow():
 	if not player.is_dead and not get_tree().paused:
 		score.text = SCORE_TEXT % State.set_score(int(player.position.x) / 50)
+

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://script/LaserBeam.gd" type="Script" id=1]
 [ext_resource path="res://assets/austronauta/glowing_circle.png" type="Texture" id=2]
+[ext_resource path="res://assets/music/laser.wav" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.583, 1 )
@@ -115,6 +116,7 @@ texture = ExtResource( 2 )
 [node name="CollisionParticles2D" type="Particles2D" parent="."]
 modulate = Color( 0.956863, 0.0235294, 0.0235294, 1 )
 show_behind_parent = true
+emitting = false
 amount = 16
 lifetime = 0.3
 visibility_rect = Rect2( -2500, -2500, 5000, 5000 )
@@ -123,3 +125,8 @@ process_material = SubResource( 13 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Firing" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 3 )

@@ -15,6 +15,7 @@ func spawn(end_of_plarform: Vector2) -> void:
 
 	enemy.position = end_of_plarform
 	add_child(enemy)
+	
 
 
 func _on_Cave_platform_generated(section: Dictionary, part: Dictionary, position_top: Dictionary, position_bottom: Dictionary):

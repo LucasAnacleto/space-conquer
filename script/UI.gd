@@ -6,6 +6,8 @@ const JOYPAD_DEVICE_ID := 0
 onready var new_pause_state = not get_tree().paused
 
 onready var control = $Control
+onready var sounds = $Audio/Music
+
 
 onready var controller_hints = {
 	"xbox": $Control/Panel/ControllerHints/Xbox,
@@ -25,7 +27,11 @@ func _ready():
 		new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
 		control.visible = new_pause_state
-				
+		
+	if not State.first_run:
+		$Audio/Music.play()
+		
+		
 	activate_controller_hint()
 	show_screen_buttons()
 	
@@ -34,11 +40,19 @@ func _ready():
 
 	
 
-func _input(event):		
+func _input(event):
 	if event.is_action_pressed("pause"):
 		new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
 		control.visible = new_pause_state
+		if new_pause_state:
+			$Audio/Music.stream_paused = true
+		else:
+			if not $Audio/Music.playing and State.first_run:
+				$Audio/Music.playing = true
+				$Audio/Music.volume_db = -5
+				$Audio/Music.stream_paused = false
+		
 		
 func activate_controller_hint() -> void:
 	hide_controller_hint()
@@ -90,11 +104,20 @@ func _on_Input_joy_connection_changed(_device, _connected) -> void:
 	show_screen_buttons()
 
 
-func _on_TouchScreenButton_pressed():
+
+func _on_Pause_pressed():
 	if touch_pause_button_anin.animation == "play":
 		touch_pause_button_anin.play('stop')
 	else:
 		touch_pause_button_anin.play('play')
+		
+	if not new_pause_state:
+		$Audio/Music.stream_paused = true
+	else:
+		if not $Audio/Music.playing and State.first_run:
+			$Audio/Music.playing = true
+			$Audio/Music.volume_db = -5
+			$Audio/Music.stream_paused = false
 	
 	new_pause_state = not get_tree().paused
 	get_tree().paused = new_pause_state

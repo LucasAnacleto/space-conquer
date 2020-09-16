@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/Enemies.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/austronauta/shadedDark14.png" type="Texture" id=10]
 [ext_resource path="res://assets/austronauta/flatDark15.png" type="Texture" id=11]
 [ext_resource path="res://assets/austronauta/SpaceBackGround.jpg" type="Texture" id=12]
+[ext_resource path="res://assets/music/Crash-Landing.wav" type="AudioStream" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "SpaceBackGround.jpg 0"
@@ -52,8 +53,6 @@ animations = [ {
 pause_mode = 2
 script = ExtResource( 4 )
 
-[node name="Audio" type="Node" parent="."]
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
@@ -68,6 +67,7 @@ format = 1
 tile_data = PoolIntArray( -786432, 0, 0, 0, 0, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 color = Color( 0.0941176, 0.0901961, 0.0901961, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -275,6 +275,7 @@ animation = "play"
 position = Vector2( 142.919, 17.5667 )
 scale = Vector2( 10, 10 )
 shape = SubResource( 4 )
+action = "shot"
 visibility_mode = 1
 
 [node name="Iimpulse" type="TouchScreenButton" parent="UI"]
@@ -301,9 +302,13 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Audio" type="Node" parent="UI"]
+
+[node name="Music" type="AudioStreamPlayer" parent="UI/Audio"]
+stream = ExtResource( 13 )
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
 [connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]
-[connection signal="pressed" from="UI/Pause" to="UI" method="_on_TouchScreenButton_pressed"]
-[connection signal="pressed" from="UI/Shot" to="Player" method="_on_Shot_pressed"]
+[connection signal="pressed" from="UI/Pause" to="UI" method="_on_Pause_pressed"]
 [connection signal="pressed" from="UI/Iimpulse" to="Player" method="_on_Iimpulse_pressed"]

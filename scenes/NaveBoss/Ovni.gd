@@ -18,9 +18,11 @@ func _physics_process(_delta):
 			velocity = move_and_slide(velocity)
 
 func die():
-	is_dead = true
-	sprite.play("dead")
-	#yield(get_tree().create_timer(0.5), "timeout")
+	if not is_dead:
+		$Audio/explosion.play()
+		is_dead = true
+	sprite.play("dead")	
+	yield(get_tree().create_timer(0.5), "timeout")
 	queue_free()
 	
 	

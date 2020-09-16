@@ -4,7 +4,6 @@ var score := 0
 var total := 0
 var first_run := true
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	

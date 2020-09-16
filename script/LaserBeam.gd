@@ -3,6 +3,7 @@ extends RayCast2D
 
 var is_casting := false setget set_is_casting
 onready var line = $Line2D
+onready var lasersom = $Audio/Firing
 
 	
 func _ready():
@@ -10,9 +11,9 @@ func _ready():
 	line.visible = false
 	pass
 	
-func _unhandled_input(event) -> void:
-	if event is InputEventMouseButton:
-		self.is_casting = event.pressed
+#func _unhandled_input(event) -> void:
+#	if event is InputEventMouseButton:
+#		self.is_casting = event.pressed
 
 func _physics_process(delta):
 	var cast_point := cast_to
@@ -59,7 +60,7 @@ func disappaer() -> void:
 func _on_Player_player_laserbean(cena):
 	if cena.is_action("shot"):		
 		if cena.pressed:
-			if not self.is_casting:
+			if not self.is_casting:				
 				self.is_casting = cena.pressed
 				line.visible = true
 		else:
