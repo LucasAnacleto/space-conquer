@@ -14,12 +14,11 @@ var impulse_offset = Vector2(0, 0)
 var impulse = Vector2(8, -80)
 
 onready var sprite = $AnimatedSprite
-onready var gun = $Gun
 onready var light = $AnimatedSprite/Light2D
 onready var laser = $LaserBeam2D
 onready var lase = $LaserBeam2D/Audio/Firing
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_colliding_bodies().size() > 0:
 		die()
 

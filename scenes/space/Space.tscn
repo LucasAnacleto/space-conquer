@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/Enemies.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/austronauta/flatDark15.png" type="Texture" id=11]
 [ext_resource path="res://assets/austronauta/SpaceBackGround.jpg" type="Texture" id=12]
 [ext_resource path="res://assets/music/Crash-Landing.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/austronauta/DungeonItems.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "SpaceBackGround.jpg 0"
@@ -72,7 +73,7 @@ color = Color( 0.0941176, 0.0901961, 0.0901961, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
-position = Vector2( -0.27739, 73.2206 )
+position = Vector2( -0.817765, 73.2206 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -119,34 +120,44 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="UI/Control"]
-margin_left = 30.0
-margin_top = 15.0
-margin_right = 221.0
-margin_bottom = 129.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.5
+margin_top = -57.0
+margin_right = 110.5
+margin_bottom = 57.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="VBoxContainer" parent="UI/Control/Panel"]
-margin_left = 3.59341
-margin_top = 2.56671
-margin_right = 187.593
-margin_bottom = 42.5667
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -67.0
+margin_right = 67.0
+margin_bottom = 12.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Label" parent="UI/Control/Panel/Title"]
-margin_right = 183.0
+margin_right = 134.0
 margin_bottom = 12.0
 text = "TITLE_CONTROLS"
 align = 1
+valign = 1
 
 [node name="ControllerHints" type="MarginContainer" parent="UI/Control/Panel"]
-margin_left = 7.0
-margin_top = 23.0
-margin_right = 195.0
-margin_bottom = 70.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -38.5
+margin_right = 94.0
+margin_bottom = 8.5
 custom_constants/margin_right = 0
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
@@ -248,28 +259,57 @@ text = "SPACE_TO_SHOT"
 [node name="Touch" type="VBoxContainer" parent="UI/Control/Panel/ControllerHints"]
 margin_right = 188.0
 margin_bottom = 47.0
+alignment = 1
 
 [node name="Impulse" type="Label" parent="UI/Control/Panel/ControllerHints/Touch"]
+margin_top = 9.0
 margin_right = 188.0
-margin_bottom = 12.0
+margin_bottom = 21.0
 text = "TOUCH_SCREEN_TO_IMPULSE"
 
 [node name="Shot" type="Label" parent="UI/Control/Panel/ControllerHints/Touch"]
-margin_top = 16.0
+margin_top = 25.0
 margin_right = 188.0
-margin_bottom = 28.0
+margin_bottom = 37.0
 text = "TOUCH_SCREEN_TO_SHOT"
 
+[node name="Button" type="Button" parent="UI/Control/Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -69.0
+margin_top = -18.0
+action_mode = 0
+text = " creditos"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UI/Control/Panel/Button"]
+position = Vector2( 1.26698, 7.02472 )
+scale = Vector2( 0.993193, 1.09791 )
+texture = ExtResource( 14 )
+centered = false
+vframes = 2
+hframes = 2
+frame = 1
+region_rect = Rect2( 8, 0, 8, 7 )
+
 [node name="Pause" type="TouchScreenButton" parent="UI"]
-position = Vector2( 127.861, 0 )
+position = Vector2( 118, 1 )
+scale = Vector2( 1, 0.6 )
 z_index = 2
 shape = SubResource( 2 )
+action = "pause"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI/Pause"]
-position = Vector2( 8, 8.002 )
-scale = Vector2( 0.385761, 0.240904 )
+position = Vector2( 9.81538, 10.6844 )
+scale = Vector2( 0.416544, 0.435228 )
 frames = SubResource( 3 )
-animation = "play"
+animation = "stop"
 
 [node name="Shot" type="TouchScreenButton" parent="UI"]
 position = Vector2( 142.919, 17.5667 )
@@ -289,14 +329,15 @@ __meta__ = {
 
 [node name="ControlScore" type="Control" parent="UI"]
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Score" type="Label" parent="UI/ControlScore"]
+margin_top = -0.540363
 margin_right = 40.0
-margin_bottom = 12.0
+margin_bottom = 11.4596
 text = "0m"
 align = 1
 __meta__ = {
@@ -310,5 +351,5 @@ stream = ExtResource( 13 )
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
 [connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]
-[connection signal="pressed" from="UI/Pause" to="UI" method="_on_Pause_pressed"]
+[connection signal="pressed" from="UI/Control/Panel/Button" to="UI" method="_on_Button_pressed"]
 [connection signal="pressed" from="UI/Iimpulse" to="Player" method="_on_Iimpulse_pressed"]
