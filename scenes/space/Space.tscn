@@ -318,11 +318,11 @@ shape = SubResource( 4 )
 action = "shot"
 visibility_mode = 1
 
-[node name="Iimpulse" type="TouchScreenButton" parent="UI"]
+[node name="Impulse" type="TouchScreenButton" parent="UI"]
 position = Vector2( -27.2967, 17.5667 )
 scale = Vector2( 8.513, 10 )
+z_index = 2
 shape = SubResource( 5 )
-visibility_mode = 1
 __meta__ = {
 "_editor_description_": ""
 }
@@ -352,4 +352,4 @@ stream = ExtResource( 13 )
 [connection signal="draw_section" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" method="_on_SpaceInTheMiddlePlatformGenerator_draw_section"]
 [connection signal="platform_generated" from="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Cave" to="PlatformGenerator/SpaceInTheMiddlePlatformGenerator/Enemies" method="_on_Cave_platform_generated"]
 [connection signal="pressed" from="UI/Control/Panel/Button" to="UI" method="_on_Button_pressed"]
-[connection signal="pressed" from="UI/Iimpulse" to="Player" method="_on_Iimpulse_pressed"]
+[connection signal="pressed" from="UI/Impulse" to="Player" method="_on_Impulse_pressed"]

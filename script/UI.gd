@@ -111,27 +111,6 @@ func _on_Input_joy_connection_changed(_device, _connected) -> void:
 	show_screen_buttons()
 
 
-
-#func _on_Pause_pressed():
-#	if touch_pause_button_anin.animation == "stop":				
-#		touch_pause_button_anin.play('play')
-#	else:
-#		touch_pause_button_anin.play('stop')
-#
-#	if not new_pause_state:
-#		$Audio/Music.stream_paused = true
-#	else:
-#		if not $Audio/Music.playing and State.first_run:
-#			$Audio/Music.playing = true
-#			$Audio/Music.volume_db = -5
-#			$Audio/Music.stream_paused = false
-#
-#	new_pause_state = not get_tree().paused
-#	get_tree().paused = new_pause_state
-#	control.visible = new_pause_state
-
-
 func _on_Button_pressed():
 	new_creditos = creditos.instance()
 	add_child(new_creditos)
-	

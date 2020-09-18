@@ -60,8 +60,5 @@ func die():
 	laser.visible = false
 
 
-func _on_Iimpulse_pressed():
-	if not is_dead && not get_tree().paused:
-		$Audio/Jump.play()
-		$Audio/Jump.volume_db = -15
-		jump()
+func _on_Impulse_pressed():
+	jump()
