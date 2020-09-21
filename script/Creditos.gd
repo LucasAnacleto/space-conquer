@@ -1,47 +1,28 @@
-extends Control
+extends VBoxContainer
 
-const CREDITS_PRESENT_TIME := 5.0
+var current_credit := 1
 
-onready var credits = {
-	"visual": $Panel/Credits/Visual,
-	"audio": $Panel/Credits/Audio,
-	"dev": $Panel/Credits/Dev,
-	"special_thanks": $Panel/Credits/SpecialThanks
-}
+onready var credits := get_children()
+onready var title := credits[0] as MarginContainer
 
 
 func _ready():
-	if State.cred:
-		present_credits()
-		State.cred = false
-	else:
-		hide_credits()
-		
-	
-func _process(_delta):
-	if Input.is_action_pressed("pause"):
-		queue_free()
+	present_credits()
+
 
 func present_credits() -> void:
 	hide_credits()
-	credits.visual.show()
-	yield(get_tree().create_timer(CREDITS_PRESENT_TIME), "timeout")
-	credits.visual.hide()
-	credits.audio.show()
-	print(CREDITS_PRESENT_TIME)
-	yield(get_tree().create_timer(CREDITS_PRESENT_TIME), "timeout")
-	credits.audio.hide()
-	credits.dev.show()
-	yield(get_tree().create_timer(CREDITS_PRESENT_TIME), "timeout")
-	credits.dev.hide()
-	credits.special_thanks.show()
-	yield(get_tree().create_timer(CREDITS_PRESENT_TIME), "timeout")
-	credits.special_thanks.hide()
-	
-	
-func hide_credits() -> void:
-	for job in credits.values():
-		job.hide()
+	title.show()
+	while current_credit < credits.size():
+		credits[current_credit].show()
+		yield(get_tree().create_timer(3.0), "timeout")
+		credits[current_credit].hide()
+		current_credit += 1
+	title.hide()
 
-func _on_Button_pressed():
-	queue_free()
+
+func hide_credits() -> void:
+	current_credit = 1
+
+	for job in credits:
+		job.hide()

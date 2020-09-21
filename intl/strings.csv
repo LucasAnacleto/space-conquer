@@ -1,24 +1,23 @@
 keys,pt,en,es
-TITLE_CONTROLS,CONTROLES,CONTROLS,CONTROL S
+TITLE_CONTROLS,CONTROLES,CONTROLS,CONTROLAR
 START_TO_PAUSE,[start] para pausar,[start] to pause,[start] para pausar
 OPTIONS_TO_PAUSE,[options] para pausar,[options] to pause,[options] para pausar
 PLUS_TO_PAUSE,[+] para pausar,[+] to pause,[+] para pausar
-PAUSE,[pausar],[pause],[pausar]
 ESC_TO_PAUSE,[esc] para pausar,[esc] to pause,[esc] para pausar
-A_TO_SHOT,[A] para atirar,[A] to shoot,[A] para disparar
-X_TO_SHOT,[X] para atirar,[X] to shoot,[X] para disparar
-B_TO_SHOT,[B] para atirar,[B] to shoot,[B] para disparar
+A_TO_SHOOT,[A] para atirar,[A] to shoot,[A] para disparar
+X_TO_SHOOT,[X] para atirar,[X] to shoot,[X] para disparar
+B_TO_SHOOT,[B] para atirar,[B] to shoot,[B] para disparar
 TOUCH_SCREEN_TO_IMPULSE,lado esquerdo para impulso,left side for impulse,lado izquierdo para impulso
-TOUCH_SCREEN_TO_SHOT,lado direito para atirar,right side to shoot,lado derecho para disparar
-SPACE_TO_SHOT,[barra de espaco] para atirar,[space bar] to shoot,[barra espaciadora] para disparar
+TOUCH_SCREEN_TO_SHOOT,lado direito para atirar,right side to shoot,lado derecho para disparar
+SPACE_TO_SHOOT,[barra de espaco] para atirar,[space bar] to shoot,[barra espaciadora] para disparar
 CONTROL_TO_IMPULSE,[D-Pad para cima] para impulso,[D-Pad Up] for impulse,[pad direccional] para impulsar
 ARROW_KEYS_TO_SPEED_CONTROL,[seta para cima] impulso,[arrow up] for impulse,[flecha arriba] para impulsar
-ART_BY,autor: Peony Space-Pixel Art,author: Peony Space-Pixel Art ,autor: Peony Space-Pixel Art
-FONT_BY,fonte: SBH TTF SBH4B Francisco Beltran, fonte: SBH TTF SBH4B Francisco Beltran, fonte: SBH TTF SBH4B Francisco Beltran
-ART_BY_ICON,autor: SpinachChicken, author: SpinachChicken,autor: SpinachChicken
-TileMap_ART,tilemap: VECTORPIXELSTAR,tilemap: VECTORPIXELSTAR,tilemap: VECTORPIXELSTAR
-ICON_BY,icone: kenney,icon: kenney,icono: kenney
-MUSIC_BY,autor:Crash Landing by DOS-88,author: Crash Landing by DOS-88,autor:Crash Landing by DOS-88
-SOUND_FX_BY,autores: dklon - jalastram,authors: dklon - jalastram,autores: dklon - jalastram
-DEVELOPED_BY,desenvolvido por deadbrain.games,developed by deadbrain.games,desarrollado por deadbrain.games
+TITLE_CREDITS,CREDITOS,CREDITS,CREDITOS
+ART_BY,personagens: Peony Space-Pixel Art,characters: Peony Space-Pixel Art,personajes: Peony Space-Pixel Art
+FONT_BY,fonte: SBH TTF SBH4B Francisco Beltran, font: SBH TTF SBH4B Francisco Beltran, letra: SBH TTF SBH4B Francisco Beltran
+ICON_BY,icones: kenney / SpinachChicken,icons: kenney / SpinachChicken,iconos: kenney / SpinachChicken
+TILESET_BY,tileset: VECTORPIXELSTAR,tileset: VECTORPIXELSTAR,tileset: VECTORPIXELSTAR
+MUSIC_BY,musica: Crash Landing por DOS-88,music: Crash Landing by DOS-88,musica: Crash Landing por DOS-88
+SOUND_FX_BY,efeitos sonoros: dklon / jalastram,sound effect: dklon / jalastram,efectos de sonido: dklon / jalastram
+DEVELOPED_BY,desenvolvido por:,developed by:,desarrollado por:
 SPECIAL_THANKS_TO,agradecimentos especiais para:,special thanks to:,agradecimientos especiales a:

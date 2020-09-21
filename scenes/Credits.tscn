@@ -1,0 +1,123 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/Creditos.gd" type="Script" id=1]
+
+[node name="Credits" type="VBoxContainer"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="MarginContainer" parent="."]
+margin_right = 113.0
+margin_bottom = 28.0
+custom_constants/margin_top = 8
+custom_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Title"]
+margin_top = 8.0
+margin_right = 113.0
+margin_bottom = 20.0
+text = "CREDITS"
+align = 1
+
+[node name="Visual" type="VBoxContainer" parent="."]
+margin_top = 32.0
+margin_right = 113.0
+margin_bottom = 60.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArtBy" type="Label" parent="Visual"]
+margin_right = 113.0
+margin_bottom = 12.0
+text = "ART_BY"
+align = 1
+
+[node name="FontBy" type="Label" parent="Visual"]
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 28.0
+text = "FONT_BY"
+align = 1
+
+[node name="Visual2" type="VBoxContainer" parent="."]
+margin_top = 64.0
+margin_right = 113.0
+margin_bottom = 92.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Label" parent="Visual2"]
+margin_right = 113.0
+margin_bottom = 12.0
+text = "ICON_BY"
+align = 1
+
+[node name="TileMap" type="Label" parent="Visual2"]
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 28.0
+text = "TILESET_BY"
+align = 1
+
+[node name="Audio" type="VBoxContainer" parent="."]
+margin_top = 96.0
+margin_right = 113.0
+margin_bottom = 124.0
+alignment = 2
+
+[node name="MusicBy" type="Label" parent="Audio"]
+margin_right = 113.0
+margin_bottom = 12.0
+text = "MUSIC_BY"
+align = 1
+
+[node name="SoundFxBy" type="Label" parent="Audio"]
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 28.0
+text = "SOUND_FX_BY"
+align = 1
+
+[node name="Dev" type="VBoxContainer" parent="."]
+margin_top = 128.0
+margin_right = 113.0
+margin_bottom = 156.0
+alignment = 2
+
+[node name="By" type="Label" parent="Dev"]
+margin_right = 113.0
+margin_bottom = 12.0
+text = "DEVELOPED_BY"
+align = 1
+
+[node name="People" type="Label" parent="Dev"]
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 28.0
+text = "deadbrain.games"
+align = 1
+
+[node name="SpecialThanks" type="VBoxContainer" parent="."]
+margin_top = 160.0
+margin_right = 113.0
+margin_bottom = 188.0
+alignment = 2
+
+[node name="To" type="Label" parent="SpecialThanks"]
+margin_right = 113.0
+margin_bottom = 12.0
+text = "SPECIAL_THANKS_TO"
+align = 1
+
+[node name="People" type="Label" parent="SpecialThanks"]
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 28.0
+text = "Bruna, Naomi"
+align = 1

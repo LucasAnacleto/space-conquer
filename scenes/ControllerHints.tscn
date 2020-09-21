@@ -1,0 +1,151 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/ControllerHints.gd" type="Script" id=1]
+
+[node name="ControllerHints" type="VBoxContainer"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="MarginContainer" parent="."]
+margin_right = 188.0
+margin_bottom = 28.0
+custom_constants/margin_top = 8
+custom_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Title"]
+margin_top = 8.0
+margin_right = 188.0
+margin_bottom = 20.0
+text = "TITLE_CONTROLS"
+align = 1
+
+[node name="Xbox" type="VBoxContainer" parent="."]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="Pause" type="Label" parent="Xbox"]
+margin_right = 188.0
+margin_bottom = 12.0
+text = "START_TO_PAUSE"
+align = 1
+
+[node name="Impulse" type="Label" parent="Xbox"]
+margin_top = 16.0
+margin_right = 188.0
+margin_bottom = 28.0
+text = "CONTROL_TO_IMPULSE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sho0t" type="Label" parent="Xbox"]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 44.0
+text = "A_TO_SHOOT"
+align = 1
+
+[node name="DualShock" type="VBoxContainer" parent="."]
+margin_top = 80.0
+margin_right = 188.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Pause" type="Label" parent="DualShock"]
+margin_right = 188.0
+margin_bottom = 12.0
+text = "OPTIONS_TO_PAUSE"
+align = 1
+
+[node name="Impulse" type="Label" parent="DualShock"]
+margin_top = 16.0
+margin_right = 188.0
+margin_bottom = 28.0
+text = "CONTROL_TO_IMPULSE"
+align = 1
+
+[node name="Shoot" type="Label" parent="DualShock"]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 44.0
+text = "X_TO_SHOOT"
+align = 1
+
+[node name="Switch" type="VBoxContainer" parent="."]
+margin_top = 128.0
+margin_right = 188.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="Pause" type="Label" parent="Switch"]
+margin_right = 188.0
+margin_bottom = 12.0
+text = "PLUS_TO_PAUSE"
+align = 1
+
+[node name="Impulse" type="Label" parent="Switch"]
+margin_top = 16.0
+margin_right = 188.0
+margin_bottom = 28.0
+text = "CONTROL_TO_IMPULSE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shoot" type="Label" parent="Switch"]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 44.0
+text = "B_TO_SHOOT"
+align = 1
+
+[node name="Keyboard" type="VBoxContainer" parent="."]
+margin_top = 176.0
+margin_right = 188.0
+margin_bottom = 220.0
+alignment = 1
+
+[node name="Pause" type="Label" parent="Keyboard"]
+margin_right = 188.0
+margin_bottom = 12.0
+text = "ESC_TO_PAUSE"
+align = 1
+
+[node name="Impulse" type="Label" parent="Keyboard"]
+margin_top = 16.0
+margin_right = 188.0
+margin_bottom = 28.0
+text = "ARROW_KEYS_TO_SPEED_CONTROL"
+align = 1
+
+[node name="Shoot" type="Label" parent="Keyboard"]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 44.0
+text = "SPACE_TO_SHOOT"
+align = 1
+
+[node name="Touch" type="VBoxContainer" parent="."]
+margin_top = 224.0
+margin_right = 188.0
+margin_bottom = 252.0
+alignment = 1
+
+[node name="Impulse" type="Label" parent="Touch"]
+margin_right = 188.0
+margin_bottom = 12.0
+text = "TOUCH_SCREEN_TO_IMPULSE"
+align = 1
+
+[node name="Shoot" type="Label" parent="Touch"]
+margin_top = 16.0
+margin_right = 188.0
+margin_bottom = 28.0
+text = "TOUCH_SCREEN_TO_SHOOT"
+align = 1

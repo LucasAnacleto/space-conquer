@@ -15,7 +15,7 @@ func _ready():
 	increment_total_chunks_generated()
 
 
-func _process(_delta):	
+func _process(_delta):
 	process_game_flow()
 	var player_position = player.position
 	var viewport_size = get_viewport().size
@@ -31,7 +31,7 @@ func increment_total_chunks_generated() -> void:
 
 
 
-func _on_Player_player_died():	
+func _on_Player_player_died():
 	$UI/Audio/Music.stop()
 	yield(get_tree().create_timer(3.0), "timeout")
 	if not player.is_dead || not get_tree().paused:

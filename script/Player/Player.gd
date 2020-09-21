@@ -31,8 +31,8 @@ func _input(event):
 			$Audio/Jump.play()
 			$Audio/Jump.volume_db = -15
 		else:
-			sprite.play('idle')		
-			
+			sprite.play('idle')
+
 		var cena = event
 		if event.is_action_pressed("shot"):
 			emit_signal("player_laserbean", cena)
@@ -43,7 +43,7 @@ func _input(event):
 			emit_signal("player_laserbean", cena)
 
 func jump():
-	sprite.play('jump')	
+	sprite.play('jump')
 	apply_impulse(impulse_offset, impulse)
 
 
@@ -55,10 +55,6 @@ func die():
 		mode = RigidBody2D.MODE_STATIC
 		light.visible = false
 		sprite.play("dead")
-		
-	emit_signal("player_died")	
+
+	emit_signal("player_died")
 	laser.visible = false
-
-
-func _on_Impulse_pressed():
-	jump()
