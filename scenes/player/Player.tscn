@@ -24,14 +24,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "dead",
 "speed": 5.0
 } ]
 
@@ -49,14 +49,14 @@ z_index = 2
 frames = SubResource( 3 )
 animation = "idle"
 
-[node name="Light2D" type="Light2D" parent="AnimatedSprite"]
+[node name="HelmetLight" type="Light2D" parent="AnimatedSprite"]
 position = Vector2( 200.741, -17.8816 )
 rotation = -1.57079
 scale = Vector2( 0.236928, 0.273182 )
 texture = ExtResource( 3 )
 mode = 2
 
-[node name="Light2D2" type="Light2D" parent="AnimatedSprite"]
+[node name="NaturalLight" type="Light2D" parent="AnimatedSprite"]
 position = Vector2( 0.440127, -0.64077 )
 scale = Vector2( 0.101404, 0.162533 )
 texture = ExtResource( 4 )
@@ -69,7 +69,7 @@ z_index = 2
 
 [node name="Jump" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 6 )
-volume_db = -1.529
+volume_db = -15.0
 
 [node name="dead" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )

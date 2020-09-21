@@ -130,3 +130,4 @@ texture = ExtResource( 2 )
 
 [node name="Firing" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 3 )
+volume_db = -10.0
