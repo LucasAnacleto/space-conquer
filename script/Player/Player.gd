@@ -23,6 +23,7 @@ func _physics_process(_delta):
 			death_sound.play()
 			is_dead = true
 			helmet_light.visible = false
+			laser.visible = false
 
 			emit_signal("player_died")
 
