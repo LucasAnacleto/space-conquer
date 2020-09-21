@@ -7,8 +7,8 @@ onready var touch_buttons = {
 	"impulse": $TouchButtons/Impulse as TouchScreenButton,
 }
 
-onready var background = $Background as ColorRect
-onready var touch_pause_button_anin = touch_buttons.pause.get_node("AnimatedSprite") as AnimatedSprite
+onready var background := $Background as ColorRect
+onready var touch_pause_button_anin := touch_buttons.pause.get_node("AnimatedSprite") as AnimatedSprite
 onready var viewport_size := get_viewport().size
 onready var controller_hints := $Hints/ControllerHints as VBoxContainer
 onready var credits := $Hints/Credits as VBoxContainer
@@ -46,10 +46,12 @@ func set_ui_visibility(is_visible: bool) -> void:
 	if is_visible:
 		background.show()
 		controller_hints.show()
+		credits.show()
 		touch_pause_button_anin.play("play")
 	else:
 		background.hide()
 		controller_hints.hide()
+		credits.hide()
 		touch_pause_button_anin.play("stop")
 
 
