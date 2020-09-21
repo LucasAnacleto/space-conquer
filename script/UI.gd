@@ -22,24 +22,11 @@ func _ready():
 
 	if State.first_run:
 		credits.show()
-		toggle_pause()
 	else:
 		credits.hide()
 
 # warning-ignore:return_value_discarded
 	Input.connect("joy_connection_changed", self, "_on_Input_joy_connection_changed")
-
-
-func _input(event):
-	if event.is_action_pressed("pause"):
-		toggle_pause()
-
-
-func toggle_pause() -> void:
-	var new_pause_state = not get_tree().paused
-
-	get_tree().paused = new_pause_state
-	set_ui_visibility(new_pause_state)
 
 
 func set_ui_visibility(is_visible: bool) -> void:
