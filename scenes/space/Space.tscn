@@ -151,10 +151,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Audio" type="Node" parent="UI"]
+[node name="Audio" type="Node" parent="."]
 pause_mode = 1
 
-[node name="Music" type="AudioStreamPlayer" parent="UI/Audio"]
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 13 )
 volume_db = -5.0
 autoplay = true

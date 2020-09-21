@@ -10,6 +10,7 @@ onready var platform_generator = $PlatformGenerator
 onready var map_chunk_width = int(get_viewport().size.x * platform_generation_chunk_size)
 onready var ui = $UI
 onready var score = $UI/ControlScore/Score
+onready var music = $Audio/Music
 
 func _ready():
 	platform_generator.generate_map(map_chunk_width)
@@ -41,7 +42,7 @@ func increment_total_chunks_generated() -> void:
 
 
 func _on_Player_player_died():
-	$UI/Audio/Music.stop()
+	music.stop()
 	yield(get_tree().create_timer(3.0), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
