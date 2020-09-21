@@ -15,7 +15,8 @@ func get_controller_type() -> String:
 		if joy_name.matchn("*switch*"):
 			return ControllerType.SWITCH
 
-		return ControllerType.XBOX
+		if not joy_name.matchn("*uinput*"):
+			return ControllerType.XBOX
 
 	if OS.has_touchscreen_ui_hint():
 		return ControllerType.TOUCH
