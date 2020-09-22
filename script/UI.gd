@@ -51,7 +51,8 @@ func adjust_screen_buttons_size() -> void:
 	var half_screen_size_in_extents = Vector2(viewport_size.x / 2 / 2, viewport_size.y / 2)
 
 	touch_buttons.pause.position = Vector2(viewport_size.x - touch_buttons.pause.shape.extents.x * 2, 0) - Vector2(8, -8)
-	touch_buttons.shoot.position = Vector2(viewport_size.x / 4 * 3, viewport_size.y / 2)
+	touch_buttons.shoot.position = Vector2(viewport_size.x / 2, 0)
+	touch_buttons.impulse.position = Vector2(0, 0)
 	touch_buttons.shoot.shape.extents = half_screen_size_in_extents
 	touch_buttons.impulse.shape.extents = half_screen_size_in_extents
 
