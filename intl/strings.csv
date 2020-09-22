@@ -18,6 +18,8 @@ FONT_BY,fonte: SBH TTF SBH4B Francisco Beltran, font: SBH TTF SBH4B Francisco Be
 ICON_BY,icones: kenney / SpinachChicken,icons: kenney / SpinachChicken,iconos: kenney / SpinachChicken
 TILESET_BY,tileset: VECTORPIXELSTAR,tileset: VECTORPIXELSTAR,tileset: VECTORPIXELSTAR
 MUSIC_BY,musica: Crash Landing por DOS-88,music: Crash Landing by DOS-88,musica: Crash Landing por DOS-88
-SOUND_FX_BY,efeitos sonoros: dklon / jalastram,sound effect: dklon / jalastram,efectos de sonido: dklon / jalastram
+SOUND_FX_BY,efeitos sonoros: dklon / jalastram,sound effect: dklon / jalastram ,efectos de sonido: dklon / jalastram
+SOUND_FX2,efeitos sonoros: GAMEBOY SFX PACK#1,effect: GAMEBOY SFX PACK#1,efectos: GAMEBOY SFX PACK#1
+SOUND_FX2_BY,por OmegaPixelArt,by OmegaPixelArt,por OmegaPixelArt
 DEVELOPED_BY,desenvolvido por:,developed by:,desarrollado por:
 SPECIAL_THANKS_TO,agradecimentos especiais para:,special thanks to:,agradecimientos especiales a:

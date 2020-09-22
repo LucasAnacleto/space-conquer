@@ -84,10 +84,29 @@ margin_bottom = 28.0
 text = "SOUND_FX_BY"
 align = 1
 
-[node name="Dev" type="VBoxContainer" parent="."]
+[node name="SoundFx" type="VBoxContainer" parent="."]
 margin_top = 128.0
 margin_right = 113.0
 margin_bottom = 156.0
+alignment = 2
+
+[node name="SoundFx2By" type="Label" parent="SoundFx"]
+margin_right = 113.0
+margin_bottom = 12.0
+text = "SOUND_FX2"
+align = 1
+
+[node name="SoundFx2By2" type="Label" parent="SoundFx"]
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 28.0
+text = "SOUND_FX2_BY"
+align = 1
+
+[node name="Dev" type="VBoxContainer" parent="."]
+margin_top = 160.0
+margin_right = 113.0
+margin_bottom = 188.0
 alignment = 2
 
 [node name="By" type="Label" parent="Dev"]
@@ -104,9 +123,9 @@ text = "deadbrain.games"
 align = 1
 
 [node name="SpecialThanks" type="VBoxContainer" parent="."]
-margin_top = 160.0
+margin_top = 192.0
 margin_right = 113.0
-margin_bottom = 188.0
+margin_bottom = 220.0
 alignment = 2
 
 [node name="To" type="Label" parent="SpecialThanks"]

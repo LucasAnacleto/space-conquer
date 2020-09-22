@@ -41,6 +41,6 @@ func _input(event):
 			apply_impulse(impulse_offset, impulse)
 
 		if event.is_action_pressed("shot"):
-			emit_signal("player_laserbean", event)
+			laser.firing(event)
 		else:
-			emit_signal("player_laserbean", event)
+			laser.firing(event)
