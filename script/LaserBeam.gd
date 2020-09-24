@@ -3,9 +3,14 @@ extends RayCast2D
 const initial = 0
 const final = 10.0
 const duration = 0.2
+
+export var cast_speed := 7000.0
+export var max_length := 1400
+export var growth_time := 0.1
+
 var is_casting := false setget set_is_casting
 
-onready var line = $Line2D as Line2D
+onready var fill = $FillLine2D as Line2D
 onready var laser_sound = $Audio/Firing as AudioStreamPlayer
 onready var collision_particles = $CollisionParticles2D as Particles2D
 onready var beam_particles = $BeamParticles2D as Particles2D
@@ -14,22 +19,27 @@ onready var tween = $Tween as Tween
 
 
 func _ready():
-	self.is_casting = false
-	line.visible = false
+	set_physics_process(false)
+	fill.points[1] = Vector2.ZERO
 
 func firing(input):
 	if input.is_action("shot"):
 		if input.pressed:
 			if not self.is_casting:
 				self.is_casting = input.pressed
-				line.visible = true
 				laser_sound.play()
 		else:
 			self.is_casting = false
 
 	
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	cast_to = (cast_to + Vector2.RIGHT * cast_speed * delta).clamped(max_length)
+	cast_beam()
+	
+	
+	
+func cast_beam():
 	var cast_point := cast_to
 	force_raycast_update()
 
@@ -42,7 +52,7 @@ func _physics_process(_delta):
 		if body.has_method("die"):
 			body.call("die")
 
-	line.points[1] = cast_point
+	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
 
@@ -63,10 +73,10 @@ func set_is_casting(cast: bool) -> void:
 
 func appear() -> void:
 	tween.stop_all()
-	tween.interpolate_property(line, "width", initial, final, duration)
+	tween.interpolate_property(fill, "width", initial, final, duration)
 	tween.start()
 
 func disappaer() -> void:
 	tween.stop_all()
-	tween.interpolate_property(line, "width", final, initial, duration)
+	tween.interpolate_property(fill, "width", final, initial, duration)
 	tween.start()

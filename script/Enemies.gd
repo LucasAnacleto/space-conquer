@@ -1,9 +1,8 @@
 extends Node2D
 
+const ENEMY_MODEL_SIZE = Vector2(16, 16)
 
 export(Array, PackedScene) var enemy_scenes
-
-const ENEMY_MODEL_SIZE = Vector2(16, 16)
 
 
 func get_random_enemy_scene() -> PackedScene:

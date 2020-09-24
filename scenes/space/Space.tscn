@@ -98,7 +98,7 @@ margin_bottom = 252.0
 [node name="Credits" parent="UI/Hints" instance=ExtResource( 14 )]
 margin_top = 256.0
 margin_right = 256.0
-margin_bottom = 444.0
+margin_bottom = 476.0
 
 [node name="TouchButtons" type="Node" parent="UI"]
 
