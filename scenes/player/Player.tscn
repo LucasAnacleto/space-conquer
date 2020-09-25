@@ -24,14 +24,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -73,4 +73,3 @@ volume_db = -15.0
 
 [node name="dead" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )
-[connection signal="player_laserbean" from="." to="LaserBeam2D" method="_on_Player_player_laserbean"]

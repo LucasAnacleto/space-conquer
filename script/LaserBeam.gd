@@ -21,7 +21,11 @@ var is_casting := false setget set_is_casting
 func _ready():
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
-
+	
+func _physics_process(delta):
+	cast_to = (cast_to + Vector2.RIGHT * cast_speed * delta).clamped(max_length)
+	cast_beam()
+	
 func firing(input):
 	if input.is_action("shoot"):
 		if input.pressed:
@@ -30,14 +34,6 @@ func firing(input):
 				laser_sound.play()
 		else:
 			self.is_casting = false
-
-	
-
-func _physics_process(delta):
-	cast_to = (cast_to + Vector2.RIGHT * cast_speed * delta).clamped(max_length)
-	cast_beam()
-	
-	
 	
 func cast_beam():
 	var cast_point := cast_to
@@ -55,7 +51,6 @@ func cast_beam():
 	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
-
 
 
 func set_is_casting(cast: bool) -> void:

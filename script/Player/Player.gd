@@ -2,7 +2,6 @@ extends RigidBody2D
 
 
 signal player_died
-signal player_laserbean
 
 var is_dead := false
 var impulse_offset := Vector2(0, 0)
