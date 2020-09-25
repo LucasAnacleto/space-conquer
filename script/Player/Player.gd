@@ -28,7 +28,7 @@ func _physics_process(_delta):
 			emit_signal("player_died")
 
 	if not is_dead:
-		if Input.is_action_pressed("Controlle") or Input.is_action_pressed("shot"):
+		if Input.is_action_pressed("control") or Input.is_action_pressed("shot"):
 			sprite.play('jump')
 		else:
 			sprite.play('idle')
@@ -36,11 +36,11 @@ func _physics_process(_delta):
 
 func _input(event):
 	if not is_dead:
-		if event.is_action_pressed("Controlle"):
+		if event.is_action_pressed("control"):
 			jump_sound.play()
 			apply_impulse(impulse_offset, impulse)
 
-		if event.is_action_pressed("shot"):
+		if event.is_action_pressed("shoot"):
 			laser.firing(event)
 		else:
 			laser.firing(event)

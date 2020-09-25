@@ -118,13 +118,13 @@ animation = "stop"
 [node name="Shoot" type="TouchScreenButton" parent="UI/TouchButtons"]
 position = Vector2( 128, 0 )
 shape = SubResource( 3 )
-action = "shot"
+action = "shoot"
 visibility_mode = 1
 
 [node name="Impulse" type="TouchScreenButton" parent="UI/TouchButtons"]
 z_index = 2
 shape = SubResource( 4 )
-action = "Controlle"
+action = "control"
 visibility_mode = 1
 __meta__ = {
 "_editor_description_": ""

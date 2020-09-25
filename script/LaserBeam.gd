@@ -23,7 +23,7 @@ func _ready():
 	fill.points[1] = Vector2.ZERO
 
 func firing(input):
-	if input.is_action("shot"):
+	if input.is_action("shoot"):
 		if input.pressed:
 			if not self.is_casting:
 				self.is_casting = input.pressed
