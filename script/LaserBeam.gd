@@ -1,14 +1,10 @@
 extends RayCast2D
 
-const initial = 0
-const final = 10.0
-const duration = 0.2
 
 export var cast_speed := 7000.0
 export var max_length := 1400
 export var growth_time := 0.1
 
-var is_casting := false setget set_is_casting
 
 onready var fill = $FillLine2D as Line2D
 onready var laser_sound = $Audio/Firing as AudioStreamPlayer
@@ -16,6 +12,10 @@ onready var collision_particles = $CollisionParticles2D as Particles2D
 onready var beam_particles = $BeamParticles2D as Particles2D
 onready var casting_particles = $CastingParticles2D as Particles2D
 onready var tween = $Tween as Tween
+onready var line_width: float = fill.width
+
+
+var is_casting := false setget set_is_casting
 
 
 func _ready():
@@ -73,10 +73,10 @@ func set_is_casting(cast: bool) -> void:
 
 func appear() -> void:
 	tween.stop_all()
-	tween.interpolate_property(fill, "width", initial, final, duration)
+	tween.interpolate_property(fill, "width", 0, line_width, growth_time * 2)
 	tween.start()
 
 func disappaer() -> void:
 	tween.stop_all()
-	tween.interpolate_property(fill, "width", final, initial, duration)
+	tween.interpolate_property(fill, "width", fill.width, 0, growth_time)
 	tween.start()
