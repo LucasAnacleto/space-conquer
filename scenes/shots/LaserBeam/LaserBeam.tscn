@@ -1,8 +1,9 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://script/LaserBeam.gd" type="Script" id=1]
+[ext_resource path="res://script/laser_beam.gd" type="Script" id=1]
 [ext_resource path="res://assets/austronauta/glowing_circle.png" type="Texture" id=2]
 [ext_resource path="res://assets/music/laser.wav" type="AudioStream" id=3]
+
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.583, 1 )
