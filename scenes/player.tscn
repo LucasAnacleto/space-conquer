@@ -4,11 +4,14 @@
 [ext_resource path="res://assets/austronauta/DungeonItems.png" type="Texture" id=2]
 [ext_resource path="res://assets/light.png" type="Texture" id=3]
 [ext_resource path="res://assets/austronauta/light.png" type="Texture" id=4]
-[ext_resource path="res://scenes/shots/LaserBeam/LaserBeam.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/laser_beam.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/music/SFX_Jump_38.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/music/Death Sound 4.wav" type="AudioStream" id=7]
-[ext_resource path="res://script/Player/player.gd" type="Script" id=8]
+[ext_resource path="res://script/player.gd" type="Script" id=8]
 [ext_resource path="res://assets/austronauta/Astronaut.png" type="Texture" id=18]
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.59698, 6.87487 )

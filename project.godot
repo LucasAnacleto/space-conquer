@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Space Conquer"
-run/main_scene="res://scenes/space/Space.tscn"
+run/main_scene="res://scenes/space.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
@@ -47,7 +47,7 @@ window/stretch/aspect="expand"
 
 [gui]
 
-theme/custom_font="res://Silver.tres"
+theme/custom_font="res://fonts/Silver.tres"
 
 [input]
 

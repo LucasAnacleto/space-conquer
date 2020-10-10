@@ -4,8 +4,9 @@
 [ext_resource path="res://assets/Space Pixel/WhiteStar.png" type="Texture" id=2]
 [ext_resource path="res://assets/Space Pixel/WhiteMoon.png" type="Texture" id=3]
 [ext_resource path="res://assets/Space Pixel/UfoGrey1.png" type="Texture" id=4]
-[ext_resource path="res://scenes/NaveBoss/ovni.gd" type="Script" id=5]
+[ext_resource path="res://script/ovni.gd" type="Script" id=5]
 [ext_resource path="res://assets/music/boom8.wav" type="AudioStream" id=6]
+
 
 
 [sub_resource type="RectangleShape2D" id=1]
