@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/NaveBoss/ovni.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://modules/procedural_platform_generator/PlatformMapGenerator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tileset/1bit-walls.tres" type="TileSet" id=7]
 [ext_resource path="res://modules/procedural_platform_generator/SpaceInTheMiddlePlatformGenerator.tscn" type="PackedScene" id=8]
-[ext_resource path="res://script/creditos.gd" type="Script" id=9]
 [ext_resource path="res://assets/austronauta/shadedDark14.png" type="Texture" id=10]
 [ext_resource path="res://assets/austronauta/flatDark15.png" type="Texture" id=11]
 [ext_resource path="res://script/cave.gd" type="Script" id=12]
@@ -100,7 +99,6 @@ margin_bottom = 252.0
 margin_top = 256.0
 margin_right = 256.0
 margin_bottom = 476.0
-script = ExtResource( 9 )
 
 [node name="TouchButtons" type="Node" parent="UI"]
 
