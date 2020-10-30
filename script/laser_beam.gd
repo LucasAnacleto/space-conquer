@@ -34,6 +34,7 @@ func firing(input):
 				laser_sound.play()
 		else:
 			self.is_casting = false
+			fill.points[1] = Vector2.ZERO
 
 func cast_beam():
 	var cast_point := cast_to
@@ -68,10 +69,10 @@ func set_is_casting(cast: bool) -> void:
 
 func appear() -> void:
 	tween.stop_all()
-	tween.interpolate_property(fill, "width", 0, line_width, growth_time * 2)
+	tween.interpolate_property(fill, "width", 0, 10.0, 0)
 	tween.start()
 
 func disappaer() -> void:
 	tween.stop_all()
-	tween.interpolate_property(fill, "width", fill.width, 0, growth_time)
+	tween.interpolate_property(fill, 10.0, 0, 0)
 	tween.start()
